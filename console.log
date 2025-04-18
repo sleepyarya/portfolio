@@ -1,0 +1,5 @@
+function handleBackToHome() {
+  console.log("Navigating back to home from learnMore");
+  sessionStorage.setItem("fromLearnMore", "true");
+  window.location.href = "index.html";
+}

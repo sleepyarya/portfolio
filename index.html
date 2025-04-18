@@ -1,179 +1,1146 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Landing Page</title>
+  <!DOCTYPE html>
+  <html lang="en">
+    
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="Cache-Control" content="public, max-age=31536000, immutable" />
+      <title>ARYA's WORLD</title>
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      
+      <style>
+        html{
+          scroll-behavior: smooth; /* Fallback untuk browser modern */
+        }  
+        body{
+              margin: 0;
+              padding: 0;
+              height: 100%;
+              overflow-x: hidden;
+              scroll-behavior: smooth;
+        }
+        .visitor-counter {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+.visitor-counter .big-number {
+  font-weight: bold;
+  color: #2c3e50;
+}
 
-    <!-- AOS (Animate on Scroll) CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+/* Warna khusus untuk triliun */
+.visitor-counter .trillion {
+  color: #d32f2f;
+  animation: pulse 1.5s infinite;
+}
 
-    <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+        /* Style untuk grup tombol */
+/* Tambahkan di bagian style */
+.visitor-counter {
+  white-space: nowrap; /* Agar teks tidak wrap */
+}
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        color: black;
-        background: #ffffff;
-      }
+@media (max-width: 576px) {
+  .visitor-counter {
+    margin-top: 8px;
+    margin-left: 0 !important;
+  }
+}
+        .split-container {
+              display: flex;
+              height: 100vh;
+              width: 100%;
+          }
+          .text-side {
+              width: 50%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 2rem;
+              background: #ffffff;
+          }
+          
+          .image-side {
+              width: 50%;
+              height: 100vh;
+              overflow: hidden;
+          }
+          
+          .image-side img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+          }
+          .content {
+              margin-top: 56px; /* Height of navbar */
+              height: calc(100vh - 56px);
+          }
 
-      /* Navbar */
-      .navbar {
-        background: rgba(255, 255, 255, 0.8);
-        transition: all 0.3s ease-in-out;
-      }
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+              .split-container {
+                  flex-direction: column;
+                  height: auto;
+              }
+              .text-side,
+              .image-side {
+                  width: 100%;
+                  height: 50vh;
+              }
+          }
+        /* Navbar */
+        .navbar {
+      z-index: 1030; /* Pastikan nilai ini cukup tinggi */
+      position: fixed;
+      top: 0;
+      width: 100%;
+  }
+  /* Ganti selector aktif ke nav-link */
+  .navbar-nav .nav-link.active::after {
+      width: 100% !important;
+  }
 
-      .navbar-nav .nav-link {
-        position: relative;
-        font-weight: bold;
-        padding-bottom: 5px;
-      }
+  .navbar-nav .nav-link.active {
+      color: #000 !important;
+      font-weight: bold;
+  }
 
-      /* Underline Animation */
-      .navbar-nav .nav-link::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        width: 0;
-        height: 3px;
-        background-color: black;
-        transition: all 0.3s ease-in-out;
-        transform: translateX(-50%);
-      }
+          /* Shrink effect - works with all browsers */
+          .navbar.shrink {
+              padding: 0.5rem 0;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+          }
 
-      .navbar-nav .nav-link:hover::after,
-      .navbar-nav .nav-item.active .nav-link::after {
-        width: 100%;
-      }
+        /* Navbar link animation */
+        .navbar-nav .nav-link {
+              position: relative;
+              font-weight: bold;
+              padding-bottom: 5px;
+              transition: all 0.3s ease;
+          }
 
-      #particles-js {
-        position: absolute;
-        width: 100%;
-        height: 100vh;
-        background: #ffffff;
-        z-index: -1;
-      }
+        .navbar-nav .nav-link::after {
+              content: "";
+              position: absolute;
+              left: 50%;
+              bottom: 0;
+              width: 0;
+              height: 3px;
+              background-color: black;
+              transition: all 0.3s ease-in-out;
+              transform: translateX(-50%);
+          }
+          .navbar-nav .nav-link:hover::after,
+          .navbar-nav .nav-item.active .nav-link::after {
+              width: 100%;
+          }
 
-      .hero-section {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        text-align: center;
-      }
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-item.active .nav-link::after {
+          width: 100%;
+        }
 
-      .btn-outline-dark {
-        color: black !important;
-        border-color: black !important;
-      }
+        /* Partikel Background */
+        #particles-js {
+              position: fixed;
+              width: 100%;
+              height: 100vh;
+              background-color: #f8f9fa;
+              z-index: -1;
+              top: 0;
+              left: 0;
+          }
+        /* Section styling */
+        section {
+      scroll-margin-top: 70px; /* Sesuaikan dengan tinggi navbar */
+  }
+          
+  .home-section {
+      padding-bottom: 0; /* Pastikan tidak ada padding bawah */
+  }
+          .text-container {
+              width: 50%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding: 2rem;
+              position: relative;
+          }
+          
+          .image-container {
+              width: 50%;
+          
+          }
+          
+          .image-container img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+        }
 
-      .btn-outline-dark:hover {
-        background-color: black !important;
-        color: white !important;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#">ARYA's Portfolio</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        /* Sosmed section */
+        #sosmed {
+          padding: 5rem 0;
+          scroll-margin-top: 70px;
+          position: relative;
+          z-index: 2;
+        }
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#pages">Pages</a></li>
-            <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item"><a class="nav-link" href="#blog">Blog</a></li>
-            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+        #sosmed .container {
+          padding-top: 0 !important;
+          margin-top: 0 !important;
+        }
 
-    <!-- Background Effect -->
-    <div id="particles-js"></div>
+        #sosmed h2 {
+          font-size: 2.5rem;
+          color: #2c3e50;
+          position: relative;
+          padding-bottom: 15px;
+        }
+        #sosmed h2::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+        }
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section container py-5">
-      <div class="row align-items-center">
-        <div class="col-md-6" data-aos="fade-up">
-          <h1 class="fw-bold">Welcome To ARYA's Portfolio</h1>
-          <p class="text-muted">Coding is my sword, logic is my shield!</p>
-          <div class="mt-4">
-            <button class="btn btn-dark me-2">Learn More</button>
-            <button class="btn btn-outline-dark">Chat Now</button>
-          </div>
-        </div>
-        <div class="col-md-6 text-center" data-aos="fade-left">
-          <img src="arya.jpg" alt="Portfolio Image" class="img-fluid" />
-        </div>
-      </div>
-    </section>
+        #sosmed p {
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+        }
 
-    <!-- Dummy Sections -->
-    <section id="pages" style="height: 100vh; background: lightgray"></section>
-    <section id="portfolio" style="height: 100vh; background: whitesmoke"></section>
-    <section id="blog" style="height: 100vh; background: lightgray"></section>
-    <section id="contact" style="height: 100vh; background: whitesmoke"></section>
+        /* Game Account section */
+        #game-account {
+      margin-top: 120px;  /* Sesuaikan nilai sesuai kebutuhan */
+      padding-top: 40px;
+      position: relative;
+      z-index: 2;
+  }
 
+        #game-account h2 {
+          margin-top: 0 !important;
+          padding-top: 10px !important; /* Spasi minimal */
+        }
+
+        #game-account p {
+          margin-top: 0 !important;
+          padding-top: 0 !important;
+        }
+        /* Game cards */
+        .game-card {
+              height: 280px;
+              border-radius: 15px;
+              overflow: hidden;
+              border: none;
+              box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+              background-size: cover;
+              background-position: center;
+              position: relative;
+              transition: all 0.3s ease;
+              background-color: rgba(128, 128, 128, 0.2) !important; /* Grey transparan */
+              background-blend-mode: overlay; /* Untuk memadukan dengan gambar background */
+          }
+          .game-card::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+          }
+          .game-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+          }
+          .game-card-body {
+              position: relative;
+              z-index: 2;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              color: white;
+              padding: 25px;
+          }
+          .game-account-section .container {
+      padding-top: 0 !important;
+  }
+          section#game-account.game-account-section {
+      margin-top: -50px !important;
+  }
+          .game-account-section {
+      padding: 40px 0;    /* Padding atas-bawah */
+      background: #f8f9fa; /* Warna latar */
+      position: relative;  /* Untuk mengontrol tumpukan elemen */
+      z-index: 1;          /* Pastikan di atas elemen lain */
+  }
+  .game-account-item {
+      margin-bottom: 15px; /* Jarak antar item */
+  }
+  .game-account-button {
+      background: #6200ea;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+  }
+          .game-logo {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              width: 70px;
+              height: 70px;
+              background: rgba(255,255,255,0.9);
+              border-radius: 12px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 12px;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          }
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+            .hero-section {
+      position: relative;
+      z-index: 1; /* Lebih tinggi dari partikel */
+      background-color: transparent;
+  }
+              .text-container,
+              .image-container {
+                  width: 100%;
+                  min-height: 50vh;
+              }
+          }
+          /* Modified Hero Section */
+          .hero-section {
+              min-height: 100vh;
+              display: flex;
+              align-items: center;
+              position: relative;
+              z-index: 1;
+              background-color: transparent;
+          }
+          
+          .hero-content {
+              text-align: center;
+              padding: 2rem;
+              max-width: 800px;
+              margin: 0 auto;
+          }
+          
+          .hero-image {
+              width: 50%;
+              position: relative;
+              overflow: hidden;
+          }
+          
+          .hero-image img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              object-position: center;
+          }
+          
+          @media (max-width: 768px) {
+              .hero-section {
+                  flex-direction: column;
+              }
+              .hero-content,
+              .hero-image {
+                  width: 100%;
+              }
+              .hero-image {
+                  height: 50vh;
+              }
+          }
+          .sosial-media-section {
+            margin-top: 300px !important; /* Sesuaikan nilai */
+            display: block;
+            margin-top: -50px; /* Sesuaikan nilai negatif ini */
+            position: relative;
+            top: 25px; /* Tarik ke atas */
+          }
+      </style>
+    </head>
     <!-- Bootstrap JS & AOS JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <body>
+      <!-- Background Effect -->
+      <div id="particles-js"></div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        particlesJS("particles-js", {
-          particles: {
-            number: { value: 100, density: { enable: true, value_area: 800 } },
-            color: { value: "#000000" },
-            shape: { type: "circle" },
-            opacity: { value: 0.8, random: false },
-            size: { value: 3, random: true },
-            move: {
-              enable: true,
-              speed: 2,
-              direction: "none",
-              random: false,
-              straight: false,
-              out_mode: "out",
-              bounce: false,
-            },
-          },
-          interactivity: {
-            events: { onhover: { enable: true, mode: "repulse" } },
-            modes: { repulse: { distance: 100, duration: 0.4 } },
-          },
-        });
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+          <a class="navbar-brand" href="#">ARYA's WORLD</a>
+  <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNav"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="navbarNav"
+      >
+          <span class="navbar-toggler-icon"></span>
+          <span class="visually-hidden">Menu Navigasi</span>
+      </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                      <a class="nav-link" href="#home">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#sosmed">Sosmed</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#game-account">Game Account</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </nav>
 
-        AOS.init();
-      });
 
-      // Navbar Active State on Scroll
-      window.addEventListener("scroll", function () {
-        let sections = document.querySelectorAll("section");
-        let navLinks = document.querySelectorAll(".navbar-nav .nav-item");
+      <!-- Hero Section -->
+<section id="home" class="hero-section">
+  <div class="text-container">
+    <h1 class="fw-bold">Welcome To ARYA's WORLD</h1>
+    <p class="text-muted">Coding is my sword, logic is my shield!</p>
+    
+    <div class="button-group mt-4">
+      <div class="d-flex align-items-center flex-wrap gap-2">
+        <button class="btn btn-dark" onclick="window.location.href='learnMore.html'">Learn More</button>
+        <div class="visitor-counter">
+          <small class="text-muted">
+            <h3 class="mt-2">Visitor :  
+            <i class="fas fa-users"></i> <span id="visitorCount">  0</span>
+          </h3>
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Image Container (TIDAK DIUBAH) -->
+  <div class="image-container">
+    <img src="arya.jpg" alt="ARYA's Profile"> <!-- TIDAK DIUBAH -->
+  </div>
+</section>
+      <!-- Sosmed Section -->
+      <style>
+        /* CSS untuk card Sosmed */
+  .card-img-container {
+      height: 200px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8f9fa;
+  }
 
-        sections.forEach((section, index) => {
-          let top = window.scrollY;
-          let offset = section.offsetTop - 100;
-          let height = section.offsetHeight;
+  .card-img-top {
+      width: auto;
+      max-height: 150px;
+      object-fit: contain;
+      padding: 15px;
+  }
 
-          if (top >= offset && top < offset + height) {
-            navLinks.forEach((link) => link.classList.remove("active"));
-            navLinks[index].classList.add("active");
+  /* Pastikan tinggi card sama */
+  .card.h-100 {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .card-body {
+      flex: 1;
+  }
+      </style>
+      <!-- Sosmed Section -->
+  <section id="sosmed">
+    <div class="container py-5 sosial-media-section">
+      <!-- Judul Section -->
+      <div class="row mb-5">
+        <div class="col-12 text-center">
+          <h2 class="display-5 fw-bold mb-3">Social Media</h2>
+          <p class="lead text-muted">Connect with me through these platforms</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <!-- Card Instagram -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-img-container">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+                  class="card-img-top" 
+                  alt="Instagram">
+            </div>
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">Instagram</h5>
+              <p class="card-text flex-grow-1">Follow me for daily updates!</p>
+              <a href="https://www.instagram.com/ramaadhan.a?igsh=MW0zYnhqYWw5YWM3dQ==" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-primary">Visit Profile</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card TikTok -->
+        <div class="col-md-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-img-container">
+              <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg" 
+                  class="card-img-top" 
+                  alt="TikTok">
+            </div>
+            <div class="card-body d-flex flex-column text-center">
+              <h5 class="card-title">TikTok</h5>
+              <p class="card-text flex-grow-1">Watch my creative videos!</p>
+              <a href="https://www.tiktok.com/@aryaaar_?_t=ZS-8v4xqCo58Oe&_r=1" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="btn btn-dark">Visit Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      
+      <style>
+        /* TAMBAHKAN INI */
+        #game-account {
+      padding-top: 20px !important; /* Mengurangi padding atas */
+      min-height: calc(100vh - 70px); /* Sesuaikan tinggi dengan navbar */
+      margin-top: -30px !important; /* Menarik section lebih dekat ke navbar */
+  }
+        
+        /* PERBAIKI NAVBAR */
+        .navbar {
+              z-index: 1000;
+              background-color: rgba(255, 255, 255, 0.9) !important;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
           }
+    </style>
+  </head>
+  <body>
+
+  <!-- Game Account Section -->
+  <section id="game-account">
+    <div class="container">
+        <div class="text-center ">  <!-- Added text-center div wrapper -->
+            <h2 class="mb-4">Game Account</h2>
+            <p class="mb-5">Daftar akun game saya.</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Mobile Legends Card -->
+            <div class="col-md-5 mb-4">
+                <div class="card game-card">
+                    <div class="card-body game-card-body">
+                        <div class="game-info">
+                            <h3>Mobile Legends</h3>
+                            <div class="game-detail">
+                                <p><i class="fas fa-id-card"></i> <strong>ID:</strong> 795473055</p>
+                                <p><i class="fas fa-server"></i> <strong>Server:</strong> 12162</p>
+                                <p><i class="fas fa-trophy"></i> <strong>Rank:</strong> Epic</p>
+                            </div>
+                            <button class="btn btn-sm btn-outline-light mt-2">Add Friend</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PUBG Mobile Card -->
+            <div class="col-md-5 mb-4">
+                <div class="card game-card">
+                    <div class="card-body game-card-body">
+                        <div class="game-info">
+                            <h3>PUBG Mobile</h3>
+                            <div class="game-detail">
+                                <p><i class="fas fa-id-card"></i> <strong>ID:</strong> 5965432821</p>
+                                <p><i class="fas fa-server"></i> <strong>Server:</strong> Asia</p>
+                                <p><i class="fas fa-trophy"></i> <strong>Tier:</strong> Ace</p>
+                            </div>
+                            <button class="btn btn-sm btn-outline-light mt-2">Add Friend</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Tambahkan di bagian style */
+  .btn-outline-danger {
+      transition: all 0.3s ease;
+  }
+
+  .btn-outline-danger.liked {
+      background-color: #dc3545;
+      color: white;
+  }
+
+  /* Hanya styling untuk tombol */
+.btn-group {
+  gap: 8px;
+}
+
+.visitor-counter {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+  .fa-heart {
+      transition: all 0.3s ease;
+  }
+    /* Game Card Styles */
+    .game-card {
+      height: 280px;
+      border-radius: 15px;
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .game-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, 
+              rgba(0,0,0,0.1) 0%, 
+              rgba(0,0,0,0.6) 100%); /* Sesuaikan opacity gradient */
+    }
+    
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    }
+    
+    .game-card-body {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: white;
+      padding: 25px;
+    }
+    
+    .game-logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 70px;
+      height: 70px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .game-logo img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+    
+    .game-info h3 {
+      font-weight: bold;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    .game-detail p {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .game-detail i {
+      width: 20px;
+      text-align: center;
+    }
+    
+    .btn-outline-light {
+      border-width: 2px;
+      align-self: flex-start;
+      margin-top: 10px !important;
+    }
+    
+    @media (max-width: 768px) {
+      .game-card {
+        height: 240px;
+      }
+      .game-info h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+    
+
+      <script>
+        // Initialize AOS animations
+        AOS.init();
+        
+        // Enhanced smooth scroll with navbar offset
+        document.querySelectorAll('.navbar-nav .nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                // Only handle links that start with #
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const targetPosition = target.offsetTop - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update URL without reload
+                        history.pushState(null, null, targetId);
+                    }
+                }
+            });
         });
+        document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.hash !== "") {
+              e.preventDefault();
+              const hash = this.hash;
+              const target = document.querySelector(hash);
+              if (target) {
+                  const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                  const targetPosition = target.offsetTop - navbarHeight;
+                  
+                  window.scrollTo({
+                      top: targetPosition,
+                      behavior: 'smooth'
+                  });
+                  
+                  history.pushState(null, null, hash);
+              }
+          }
       });
+  });
+
+      // Update script scroll handler
+  window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+      let current = '';
+      
+      sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          
+          // Perhitungan lebih akurat
+          if (window.scrollY >= sectionTop - navbarHeight - 50) {
+              current = section.getAttribute('id');
+          }
+      });
+      
+      navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+          }
+      });
+  });
+        // Set initial active state
+        window.addEventListener('scroll', () => {
+              const sections = document.querySelectorAll('section');
+              const navLinks = document.querySelectorAll('.nav-link');
+              let current = '';
+              
+              sections.forEach(section => {
+                  const sectionTop = section.offsetTop;
+                  const sectionHeight = section.offsetHeight;
+                  if (window.scrollY >= sectionTop - 100) {
+                      current = section.getAttribute('id');
+                  }
+              });
+              
+              navLinks.forEach(link => {
+                  link.classList.remove('active');
+                  if (link.getAttribute('href') === `#${current}`) {
+                      link.classList.add('active');
+                  }
+              });
+          });
+
+        // Particles.js Configuration
+        document.addEventListener('DOMContentLoaded', function() {
+          particlesJS('particles-js', {
+            "particles": {
+              "number": {
+                "value": 80,
+                "density": {
+                  "enable": true,
+                  "value_area": 800
+                }
+              },
+              "color": {
+                "value": "#000000"
+              },
+              "shape": {
+                "type": "circle",
+                "stroke": {
+                  "width": 0,
+                  "color": "#000000"
+                },
+                "polygon": {
+                  "nb_sides": 5
+                }
+              },
+              "opacity": {
+                "value": 0.5,
+                "random": false,
+                "anim": {
+                  "enable": false,
+                  "speed": 1,
+                  "opacity_min": 0.1,
+                  "sync": false
+                }
+              },
+              "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                  "enable": false,
+                  "speed": 40,
+                  "size_min": 0.1,
+                  "sync": false
+                }
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#000000",
+                "opacity": 0.4,
+                "width": 1
+              },
+              "move": {
+                "enable": true,
+                "speed": 2,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                  "enable": false,
+                  "rotateX": 600,
+                  "rotateY": 1200
+                }
+              }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": "grab"
+                },
+                "onclick": {
+                  "enable": true,
+                  "mode": "push"
+                },
+                "resize": true
+              },
+              "modes": {
+                "grab": {
+                  "distance": 140,
+                  "line_linked": {
+                    "opacity": 1
+                  }
+                },
+                "bubble": {
+                  "distance": 400,
+                  "size": 40,
+                  "duration": 2,
+                  "opacity": 8,
+                  "speed": 3
+                },
+                "repulse": {
+                  "distance": 200,
+                  "duration": 0.4
+                },
+                "push": {
+                  "particles_nb": 4
+                },
+                "remove": {
+                  "particles_nb": 2
+                }
+              }
+            },
+            "retina_detect": true
+          });
+        });
+      
+        // Floating elements animation
+        document.addEventListener('DOMContentLoaded', function() {
+          const floatingElements = [];
+          const colors = ['#ff3366', '#20a4f3', '#2ec4b6', '#f6f7f8', '#ff9f1c'];
+          
+          function createFloatingElement() {
+            const element = document.createElement('div');
+            element.style.position = 'fixed';
+            element.style.width = Math.random() * 20 + 10 + 'px';
+            element.style.height = element.style.width;
+            element.style.background = colors[Math.floor(Math.random() * colors.length)];
+            element.style.borderRadius = '50%';
+            element.style.opacity = Math.random() * 0.5 + 0.2;
+            element.style.zIndex = '-1';
+            element.style.left = Math.random() * window.innerWidth + 'px';
+            element.style.top = window.innerHeight + 'px';
+            document.body.appendChild(element);
+            
+            const speed = Math.random() * 2 + 1;
+            const floatingElement = {
+              element: element,
+              speed: speed,
+              x: parseFloat(element.style.left),
+              y: parseFloat(element.style.top),
+              amplitude: Math.random() * 100 + 50
+            };
+            
+            floatingElements.push(floatingElement);
+          }
+          
+          // Create initial floating elements
+          for (let i = 0; i < 15; i++) {
+            createFloatingElement();
+          }
+          
+          // Animation loop
+          function animateFloatingElements() {
+            floatingElements.forEach(item => {
+              item.y -= item.speed;
+              item.x += Math.sin(item.y / item.amplitude) * 2;
+              
+              item.element.style.top = item.y + 'px';
+              item.element.style.left = item.x + 'px';
+              
+              // Reset element when it goes off screen
+              if (item.y < -50) {
+                item.y = window.innerHeight + 50;
+                item.x = Math.random() * window.innerWidth;
+              }
+            });
+            
+            requestAnimationFrame(animateFloatingElements);
+          }
+          
+          animateFloatingElements();
+          
+          // Add new elements occasionally
+          setInterval(createFloatingElement, 3000);
+        });
+      
+
+        // Simpan di bagian script
+        document.addEventListener('DOMContentLoaded', function() {
+  // Fungsi untuk Like Button
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCount = document.getElementById('likeCount');
+  const visitorCount = document.getElementById('visitorCount');
+
+  // Inisialisasi dari localStorage
+  let likes = localStorage.getItem('pageLikes') || 0;
+  let visitors = localStorage.getItem('pageVisitors') || 0;
+
+  // Cek referrer (hanya tambah visitor jika bukan dari learnMore.html)
+  if (!document.referrer.includes('learnMore.html')) {
+    visitors++;
+    localStorage.setItem('pageVisitors', visitors);
+  }
+
+  // Format dan tampilkan visitor
+  visitorCount.textContent = formatVisitorCount(visitors);
+
+  // Jika visitor mencapai triliun, tambahkan class khusus
+  if (visitors >= 1e12) {
+    visitorCount.classList.add('trillion');
+  }
+
+  // ... (kode like button tetap sama)
+});
+
+  function formatVisitorCount(num) {
+  num = parseInt(num); // Pastikan berupa number
+  if (num >= 1e12) return (num/1e12).toFixed(2) + 'T';
+  if (num >= 1e9) return (num/1e9).toFixed(1) + 'B';
+  if (num >= 1e6) return (num/1e6).toFixed(1) + 'M';
+  if (num >= 1e3) return (num/1e3).toFixed(1) + 'k';
+  return num;
+}
+
+// Contoh penggunaan:
+// formatVisitorCount(1.23e12) → "1.23T" (1.23 triliun)
+// formatVisitorCount(1.5e9) → "1.5B" (1.5 miliar)
+
+  //animasi counter
+  function animateCounter(newValue) {
+  const element = document.getElementById('visitorCount');
+  element.style.transform = 'scale(1.2)';
+  setTimeout(() => {
+    element.textContent = formatVisitorCount(newValue);
+    element.style.transform = 'scale(1)';
+  }, 300);
+}
+
+// Simpan counter di localStorage
+let visitors = localStorage.getItem('visitors') || 0;
+
+// Format dan update tampilan
+document.getElementById('visitorCount').textContent = 
+  formatVisitorCount(visitors);
+
+// Tambah class khusus untuk triliun
+if (visitors >= 1e12) {
+  document.getElementById('visitorCount').classList.add('trillion');
+}
+
+// like counter animation
+document.addEventListener('DOMContentLoaded', function() {
+  // Fungsi untuk Like Button
+  const likeBtn = document.getElementById('likeBtn');
+  const likeCount = document.getElementById('likeCount');
+  
+  // Inisialisasi dari localStorage
+  let likes = parseInt(localStorage.getItem('pageLikes')) || 0;
+  const userLiked = localStorage.getItem('userLiked') === 'true';
+  
+  // Set nilai awal like
+  likeCount.textContent = likes;
+  if (userLiked) {
+    likeBtn.classList.add('liked');
+    likeBtn.innerHTML = '<i class="fas fa-heart"></i> <span id="likeCount">' + likes + '</span>';
+  }
+
+  // Event listener untuk like button
+  likeBtn.addEventListener('click', function() {
+    if (!userLiked) {
+      likes++;
+      localStorage.setItem('pageLikes', likes);
+      localStorage.setItem('userLiked', 'true');
+      likeCount.textContent = likes;
+      likeBtn.classList.add('liked');
+      likeBtn.innerHTML = '<i class="fas fa-heart"></i> <span id="likeCount">' + likes + '</span>';
+      
+      // Animasi saat like
+      likeBtn.style.transform = 'scale(1.2)';
+      setTimeout(() => {
+        likeBtn.style.transform = 'scale(1)';
+      }, 300);
+    }
+  });
+});
+
+//mencegah visitor++ learnMore.html
+document.addEventListener('DOMContentLoaded', function() {
+  // Fungsi format angka
+  const formatNumber = num => {
+    if (num >= 1e12) return (num/1e12).toFixed(1) + 'T';
+    if (num >= 1e9) return (num/1e9).toFixed(1) + 'B';
+    if (num >= 1e6) return (num/1e6).toFixed(1) + 'M';
+    if (num >= 1e3) return (num/1e3).toFixed(1) + 'k';
+    return num;
+  };
+
+   // Inisialisasi visitor counter
+   let visitors = parseInt(localStorage.getItem('visitors')) || 0;
+  const lastVisit = localStorage.getItem('lastVisit');
+  const now = Date.now();
+
+   if (!lastVisit || (now - parseInt(lastVisit)) > 60000) {
+    visitors++;
+    localStorage.setItem('visitors', visitors);
+    localStorage.setItem('lastVisit', now.toString());
+    
+    // Update tampilan
+    document.getElementById('visitorCount').textContent = formatNumber(visitors);
+    
+    // Jika mencapai triliun, tambahkan animasi
+    if (visitors >= 1e12) {
+      document.getElementById('visitorCount').classList.add('trillion');
+    }
+  } else {
+    // Tampilkan nilai yang ada tanpa increment
+    document.getElementById('visitorCount').textContent = formatNumber(visitors);
+  }
+});
+
+  // Cek kondisi navigasi
+  const isReturningFromLearnMore = localStorage.getItem('returningFromLearnMore') === 'true';
+  const lastBackClick = parseInt(localStorage.getItem('lastBackClick') || '0');
+  const isRecentNavigation = (Date.now() - lastBackClick) < 3000; // 3 detik threshold
+  
+  // Hanya tambah visitor jika:
+  // 1. Bukan navigasi dari learnMore.html
+  // 2. Atau waktu sejak klik > 3 detik (handle cache)
+  if (!isReturningFromLearnMore || !isRecentNavigation) {
+    let visitors = parseInt(localStorage.getItem('visitors')) || 0;
+    visitors++;
+    localStorage.setItem('visitors', visitors);
+    document.getElementById('visitorCount').textContent = formatNumber(visitors);
+  }
+
+  // Bersihkan flag
+  localStorage.removeItem('returningFromLearnMore');
+  localStorage.removeItem('lastBackClick');
+  
+  // Debugging
+  console.log('Navigation State:', {
+    isReturningFromLearnMore,
+    lastBackClick,
+    isRecentNavigation,
+    referrer: document.referrer
+  });
+
+
     </script>
-  </body>
-</html>
+    
+    </body>
+  </html>

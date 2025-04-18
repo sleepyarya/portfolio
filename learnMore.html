@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn More About ARYA's WORLD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%236200ea'/><text x='50' y='68' font-size='60' text-anchor='middle' fill='white'>A</text></svg>">
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+      }
+      /* CSS Animasi Khusus */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .feature-box {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+      }
+
+      .feature-box.animate__fadeInUp {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .feature-box:hover {
+        transform: translateY(-5px) scale(1.02) !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+      }
+
+      .icon-box {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .navbar {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .hero-section {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        color: white;
+        padding: 5rem 0;
+        margin-bottom: 3rem;
+      }
+
+      .feature-box {
+        padding: 2rem;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .feature-box:hover {
+        transform: translateY(-10px);
+      }
+
+      .icon-box {
+        font-size: 3rem;
+        color: #6e8efb;
+        margin-bottom: 1rem;
+      }
+
+      .btn-primary {
+        background-color: #6e8efb;
+        border-color: #6e8efb;
+      }
+
+      .btn-primary:hover {
+        background-color: #5a7df4;
+        border-color: #5a7df4;
+      }
+
+      .back-btn {
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">ARYA's WORLD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon">APE NI</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <button data-back-to-home class="btn btn-primary">Back to Home</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+      <div class="container">
+        <h1 class="display-4 fw-bold">Discover More About Me</h1>
+        <p class="lead">Explore my skills, passions, and journey in the world of technology</p>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="feature-box">
+            <div class="icon-box">
+              <i class="fas fa-code"></i>
+            </div>
+            <h3>My Coding Journey</h3>
+            <p>I started coding at the age of 16 and have since mastered multiple programming languages including Html, Php, and Java. My passion lies in creating efficient and elegant solutions to complex problems.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="feature-box">
+            <div class="icon-box">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Education</h3>
+            <p>Currently studying at the State Polytechnic of Malang in Information Technology with a focus on Java. I have learned from many sources to complement my formal education. Either from AI or the Internet.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="feature-box">
+            <div class="icon-box">
+              <i class="fas fa-project-diagram"></i>
+            </div>
+            <h3>Projects</h3>
+            <p>I have worked on various projects ranging from creating a printing company website using Code Igniter. Each project is a learning experience and an opportunity to push my limits. I love it when my projects succeed.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="feature-box">
+            <div class="icon-box">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <h3>Gaming Passion</h3>
+            <p>When I'm not coding, you can find me competing in Mobile Legends: Bang bang or PUBG Mobile. Gaming has taught me strategic thinking, teamwork, and problem-solving skills that I apply to my development work.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center back-btn">
+        <button data-back-to-home class="btn btn-primary">Back to Home</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+      <div class="container">
+        <p>© 2023 ARYA's WORLD. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Font Awesome & Bootstrap JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // ============= ANIMASI KHUSUS learnMore.html =============
+      document.addEventListener("DOMContentLoaded", function () {
+        // 1. Animasi Muncul Saat Scroll
+        const animateOnScroll = function (entries, observer) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate__fadeInUp");
+              observer.unobserve(entry.target);
+            }
+          });
+        };
+
+        const observer = new IntersectionObserver(animateOnScroll, {
+          threshold: 0.1,
+        });
+
+        document.querySelectorAll(".feature-box").forEach((box) => {
+          observer.observe(box);
+        });
+
+        // 2. Animasi Ikon Mengambang
+        const iconBoxes = document.querySelectorAll(".icon-box");
+        iconBoxes.forEach((box) => {
+          let floating = true;
+
+          const floatAnimation = () => {
+            if (floating) {
+              const position = Math.sin(Date.now() / 800) * 10;
+              box.style.transform = `translateY(${position}px)`;
+              requestAnimationFrame(floatAnimation);
+            }
+          };
+
+          floatAnimation();
+
+          box.addEventListener("mouseenter", () => (floating = false));
+          box.addEventListener("mouseleave", () => {
+            floating = true;
+            floatAnimation();
+          });
+        });
+
+        // 3. Animasi Gradient Dinamis
+        const heroSection = document.querySelector(".hero-section");
+        if (heroSection) {
+          let hue = 180;
+
+          const animateGradient = () => {
+            hue = (hue + 0.3) % 360;
+            heroSection.style.background = `
+                linear-gradient(135deg, 
+                hsl(${hue}, 80%, 60%), 
+                hsl(${(hue + 60) % 360}, 80%, 60%)
+              )`;
+            requestAnimationFrame(animateGradient);
+          };
+
+          animateGradient();
+        }
+
+        // Fungsi untuk handle semua tombol back
+        function handleBackNavigation() {
+          console.log("[LearnMore] Preparing to redirect back to index.html");
+          console.log("[LearnMore] Setting navigation flags...");
+
+          localStorage.setItem("returningFromLearnMore", "true");
+          localStorage.setItem("lastBackClick", Date.now());
+
+          console.log("[LearnMore] Flags set:", {
+            returningFromLearnMore: true,
+            lastBackClick: new Date().toLocaleTimeString(),
+          });
+
+          setTimeout(() => {
+            console.log("[LearnMore] Now redirecting...");
+            window.location.href = "index.html";
+          }, 50);
+        }
+
+        // Pasang event listener ke semua tombol back
+        document.querySelectorAll("[data-back-to-home]").forEach((btn) => {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            handleBackNavigation();
+          });
+        });
+
+        // Handle kasus ketika user menggunakan browser back button
+        window.addEventListener("beforeunload", function () {
+          if (performance.navigation.type !== performance.navigation.TYPE_RELOAD) {
+            localStorage.setItem("returningFromLearnMore", "true");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
